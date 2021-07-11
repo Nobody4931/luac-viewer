@@ -88,7 +88,7 @@ inline void output_chunk( const chunk_t& chunk, uint16_t depth = 0 ) {
 	indent( depth );
 	std::cout << "Functions:\n";
 	for ( l_int i = 0; i < chunk.function_cnt; ++i ) {
-		indent( depth + 1 );
+		indent( depth );
 		std::cout << '[' << i << "]\n";
 		output_chunk( chunk.functions[i], depth + 1 );
 	}
@@ -139,7 +139,7 @@ int main( int argc, char** argv ) {
 		throw "ACCESS_DENIED";
 	}
 
-	std::cout << "Deserializing...\n\n";
+	std::cout << "Deserializing...\n\n\n";
 	chunk_t tl_chunk = decode_file( infile );
 
 	output_chunk( tl_chunk );
